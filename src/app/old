@@ -1,0 +1,57 @@
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {SearchService} from './search.service';
+import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
+
+
+@Component({
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  providers: [ SearchService ],
+  styleUrls: ['./search.component.css']
+})
+export class SearchComponent implements OnInit {
+  private searchList: any = {};
+  
+  constructor( 
+    
+    private serv: SearchService 
+    
+    ) { 
+
+    alert('run!!!');
+
+
+  }
+
+
+
+  ngOnInit(): void {}
+
+  valuechange($event: Event): void {
+    var t: HTMLInputElement = $event.target as HTMLInputElement;
+    alert(t.value);
+    
+    /*
+    this.getPosts().subscribe(
+      (response) => {
+        this.searchList = response;
+        alert(this.searchList);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    */
+  }
+
+  getPosts() {
+    alert('run!!!');
+    //  return this.http.get(this.url);
+  }
+
+  private url =
+    'https://my-json-server.typicode.com/JSGund/XHR-Fetch-Request-JavaScript/posts';
+
+  
+}
