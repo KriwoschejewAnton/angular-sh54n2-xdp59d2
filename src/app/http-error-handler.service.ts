@@ -12,7 +12,7 @@ export type HandleError =
 /** Handles HttpClient errors */
 @Injectable()
 export class HttpErrorHandler {
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService) { alert('error'); }
 
   /** Create curried handleError function that already knows the service name */
   createHandleError = (serviceName = '') =>
@@ -31,6 +31,9 @@ export class HttpErrorHandler {
 
     return (error: HttpErrorResponse): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
+
+      alert('error');
+
       console.error(error); // log to console instead
 
       const message = (error.error instanceof ErrorEvent) ?
