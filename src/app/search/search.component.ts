@@ -10,9 +10,10 @@ import { SearchService } from './search.service';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
-  heroes: Item[] = [];
+  items: Item[] = [];
   editHero: Item | undefined; // the hero currently being edited
   searchItem = '';
+  isHidden = true;
 
   constructor(private heroesService: SearchService) {
     //alert('SearchComponent');
@@ -48,10 +49,13 @@ export class SearchComponent implements OnInit {
   }
   set(items: Item[]) {
     alert(this.searchItem + ' ### ' + items[1].name);
+    this.items = items;
+    this.isHidden = false;
   }
 
   hide() {
     alert('hide');
+    this.isHidden = true;
   }
 }
 

@@ -6,3 +6,10 @@ id="hero-name"
 (keyup)="search()"
 (blur)="hide()"
 />
+
+<ul class="items" *ngIf='!isHidden'>
+<li *ngFor="let item of items">
+  <span class="badge">{{ item.id || -1 }}</span>
+  <span>{{item.name}}</span>
+</li>
+</ul>
