@@ -25,11 +25,11 @@ export class SearchService {
     private http: HttpClient,
     httpErrorHandler: HttpErrorHandler) {
       //alert('aaaaa');
-    this.handleError = httpErrorHandler.createHandleError('HeroesService');
+    this.handleError = httpErrorHandler.createHandleError('searchService');
   }
 
-  /* GET heroes whose name contains search term */
-  searchHeroes(term: string): Observable<Item[]> {
+  /* GET items whose name contains search term */
+  search(term: string): Observable<Item[]> {
     term = term.trim();
 
     // Add safe, URL encoded search parameter if there is a search term
@@ -38,7 +38,7 @@ export class SearchService {
 
     return this.http.get<Item[]>(this.Url, options)
       .pipe(
-        catchError(this.handleError<Item[]>('searchHeroes', []))
+        catchError(this.handleError<Item[]>('search', []))
       );
   }
 

@@ -2,7 +2,7 @@
 <input 
 type="text" 
 [(ngModel)]="searchItem" 
-id="hero-name" 
+id="search" 
 (keyup)="search()"
 (blur)="hide()"
 (focus)="search()"
@@ -10,6 +10,6 @@ id="hero-name"
 
 <ul class="items" *ngIf='!isHidden'>
 <li *ngFor="let item of items">
-  <a [href]="item.id">{{item.name}}</a>
+  <a [href]="item.id" (click)="select(item)">{{item.name}}</a>
 </li>
 </ul>

@@ -11,37 +11,28 @@ import { SearchService } from './search.service';
 })
 export class SearchComponent implements OnInit {
   items: Item[] = [];
-  editHero: Item | undefined; // the hero currently being edited
   searchItem = '';
   isHidden = true;
 
-  constructor(private heroesService: SearchService) {
+  constructor(private searchService: SearchService) {
     //alert('SearchComponent');
   }
 
-  @ViewChild('heroEditInput')
-  set heroEditInput(element: ElementRef<HTMLInputElement>) {
+  /*@ViewChild('itemEditInput')
+  set itemEditInput(element: ElementRef<HTMLInputElement>) {
     if (element) {
       element.nativeElement.focus();
     }
-  }
+  }*/
 
   ngOnInit() {}
 
   search() {
     var searchTerm = this.searchItem;
     //alert(searchTerm);
-
-    const myObserver = {
-      next: () => alert('Observer got a next value: '),
-      error: () => alert('Observer got an error: '),
-      complete: () => alert('Observer got a complete notification'),
-    };
-
-    this.editHero = undefined;
     if (searchTerm.length > 3) {
-      this.heroesService
-        .searchHeroes(searchTerm)
+      this.searchService
+        .search(searchTerm)
         //.subscribe(myObserver);
         .subscribe((items) => this.set(items));
     } else {
@@ -56,6 +47,10 @@ export class SearchComponent implements OnInit {
   hide() {
     alert('hide');
     this.isHidden = true;
+  }
+
+  select(item: Item) {
+    alert(item.name);
   }
 }
 
