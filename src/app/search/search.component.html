@@ -10,6 +10,6 @@ id="search"
 
 <ul class="items" *ngIf='!isHidden'>
 <li *ngFor="let item of items">
-  <a [href]="item.id" (click)="select(item)">{{item.name}}</a>
+  <a (click)="select(item)">{{item.name}}</a>
 </li>
 </ul>
