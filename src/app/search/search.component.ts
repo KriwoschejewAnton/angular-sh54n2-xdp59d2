@@ -39,13 +39,13 @@ export class SearchComponent implements OnInit {
     }
   }
   set(items: Item[]) {
-    alert(this.searchItem + ' ### ' + items[1].name);
+    //alert(this.searchItem + ' ### ' + items[1].name);
     this.items = items;
     this.isHidden = false;
   }
 
   hide() {
-    alert('hide');
+    //alert('hide');
     this.isHidden = true;
   }
 
