@@ -18,7 +18,7 @@ const httpOptions = {
 
 @Injectable()
 export class SearchService {
-  heroesUrl = 'http://im-markup-language-service-dev.aws.wiley.com:8984/search';  // URL to web api
+  Url = 'http://im-markup-language-service-dev.aws.wiley.com:8984/search';  // URL to web api
   private handleError: HandleError;
 
   constructor(
@@ -36,7 +36,7 @@ export class SearchService {
     const options = term ?
      { params: new HttpParams().set('name', term) } : {};
 
-    return this.http.get<Item[]>(this.heroesUrl, options)
+    return this.http.get<Item[]>(this.Url, options)
       .pipe(
         catchError(this.handleError<Item[]>('searchHeroes', []))
       );

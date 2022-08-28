@@ -43,7 +43,7 @@ export class SearchComponent implements OnInit {
     if (searchTerm) {
       this.heroesService
         .searchHeroes(searchTerm)
-        .subscribe(heroes => (this.heroes = heroes));
+        .subscribe(heroes => { this.heroes = heroes; alert('this.heroes'); } );
     } else {
       
     }
