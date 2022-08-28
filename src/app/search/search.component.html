@@ -5,11 +5,11 @@ type="text"
 id="hero-name" 
 (keyup)="search()"
 (blur)="hide()"
+(focus)="search()"
 />
 
 <ul class="items" *ngIf='!isHidden'>
 <li *ngFor="let item of items">
-  <span class="badge">{{ item.id || -1 }}</span>
-  <span>{{item.name}}</span>
+  <a [href]="item.id">{{item.name}}</a>
 </li>
 </ul>
