@@ -1,12 +1,8 @@
 <p>Search:</p>
-<input
-  type="text"
-  id="name"
-  name="name"
-  required
-  minlength="4"
-  maxlength="8"
-  size="10"
-  (change)="valuechange($event)"
-  [(ngModel)]="heroName"
+<input 
+type="text" 
+[(ngModel)]="searchItem" 
+id="hero-name" 
+(keyup)="search()"
+(blur)="hide()"
 />

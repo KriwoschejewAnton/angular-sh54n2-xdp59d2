@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientXsrfModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -20,6 +21,7 @@ import { MessageService } from './message.service';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'My-Xsrf-Cookie',
       headerName: 'My-Xsrf-Header',

@@ -12,7 +12,7 @@ import { SearchService } from './search.service';
 export class SearchComponent implements OnInit {
   heroes: Item[] = [];
   editHero: Item | undefined; // the hero currently being edited
-  heroName = '';
+  searchItem = '';
 
   constructor(private heroesService: SearchService) {
 
@@ -31,24 +31,40 @@ export class SearchComponent implements OnInit {
    
   }
 
+  search() {
+    var searchTerm = this.searchItem;
+    //alert(searchTerm);
 
-  valuechange($event: Event): void {
-    var t: HTMLInputElement = $event.target as HTMLInputElement;
-    //alert(t.value);
-    this.search(t.value);
- 
-  }
-  search(searchTerm: string) {
+
+    const myObserver = {
+      next: () => alert('Observer got a next value: '),
+      error: () => alert('Observer got an error: '),
+      complete: () => alert('Observer got a complete notification'),
+    };
+    
+
+
     this.editHero = undefined;
     if (searchTerm) {
       this.heroesService
         .searchHeroes(searchTerm)
-        .subscribe(heroes => { this.heroes = heroes; alert('this.heroes'); } );
+        //.subscribe(myObserver);
+        .subscribe((heroes) => this.set(heroes) );
+
     } else {
       
     }
   }
+  set(items: Item[]) {
+    alert(
+      this.searchItem + " ### " + items[1].name 
+      );
+  }
 
+  hide()
+  {
+    alert('hide');
+  }
 
 }
 
