@@ -46,7 +46,8 @@ export class SearchComponent implements OnInit {
 
   hide() {
     //alert('hide');
-    this.isHidden = true;
+
+    setTimeout( () => { this.isHidden = true }, 500  );
   }
 
   select(item: Item) {
