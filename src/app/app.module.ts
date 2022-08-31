@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientXsrfModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -13,7 +14,7 @@ import { ProductAlertsComponent } from './product-alerts/product-alerts.componen
 import { SearchComponent } from './search/search.component';
 import { HttpErrorHandler } from './http-error-handler.service';
 import { MessageService } from './message.service';
-
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -22,6 +23,8 @@ import { MessageService } from './message.service';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    OverlayModule,
+    MatNativeDateModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'My-Xsrf-Cookie',
       headerName: 'My-Xsrf-Header',

@@ -12,7 +12,7 @@ import { SearchService } from './search.service';
 export class SearchComponent implements OnInit {
   items: Item[] = [];
   searchItem = '';
-  isHidden = true;
+  isOpen = false;
 
   constructor(private searchService: SearchService) {
     //alert('SearchComponent');
@@ -41,13 +41,13 @@ export class SearchComponent implements OnInit {
   set(items: Item[]) {
     //alert(this.searchItem + ' ### ' + items[1].name);
     this.items = items;
-    this.isHidden = false;
+    this.isOpen = true;
   }
 
   hide() {
     //alert('hide');
 
-    setTimeout( () => { this.isHidden = true }, 500  );
+    setTimeout( () => { this.isOpen = false }, 500  );
   }
 
   select(item: Item) {

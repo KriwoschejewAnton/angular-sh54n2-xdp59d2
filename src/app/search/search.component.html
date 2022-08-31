@@ -1,3 +1,4 @@
+<div>
 <p>Search:</p>
 <input 
 type="text" 
@@ -6,10 +7,19 @@ id="search"
 (keyup)="search()"
 (blur)="hide()"
 (focus)="search()"
+cdkOverlayOrigin 
+#trigger="cdkOverlayOrigin"
 />
 
-<ul class="items" *ngIf='!isHidden'>
+<ng-template
+cdkConnectedOverlay
+[cdkConnectedOverlayOrigin]="trigger"
+[cdkConnectedOverlayOpen]="isOpen"
+>
+<ul class="example-list">
 <li *ngFor="let item of items">
-  <a (click)="select(item)">{{item.name}}</a>
+<a (click)="select(item)">{{item.name}}</a>
 </li>
 </ul>
+</ng-template>
+</div>
