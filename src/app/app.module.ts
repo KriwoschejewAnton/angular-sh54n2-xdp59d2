@@ -14,7 +14,6 @@ import { ProductAlertsComponent } from './product-alerts/product-alerts.componen
 import { SearchComponent } from './search/search.component';
 import { HttpErrorHandler } from './http-error-handler.service';
 import { MessageService } from './message.service';
-import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -24,7 +23,6 @@ import { MatNativeDateModule } from '@angular/material/core';
     HttpClientModule,
     FormsModule,
     OverlayModule,
-    MatNativeDateModule,
     HttpClientXsrfModule.withOptions({
       cookieName: 'My-Xsrf-Cookie',
       headerName: 'My-Xsrf-Header',
