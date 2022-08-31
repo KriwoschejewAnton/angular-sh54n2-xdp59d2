@@ -51,7 +51,7 @@ export class SearchComponent implements OnInit {
   }
 
   select(item: Item) {
-    alert(item.name);
+    alert(item.id + " " + item.name);
   }
 }
 
