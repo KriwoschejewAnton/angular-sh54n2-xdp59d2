@@ -5,7 +5,7 @@ type="text"
 [(ngModel)]="searchItem" 
 id="search" 
 (keyup)="search()"
-(blur)="hide()"
+(click)="isOpen = !isOpen"
 (focus)="search()"
 cdkOverlayOrigin 
 #trigger="cdkOverlayOrigin"
